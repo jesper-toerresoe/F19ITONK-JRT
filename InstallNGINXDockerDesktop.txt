@@ -1,0 +1,9 @@
+https://kubernetes.github.io/ingress-nginx/deploy/
+
+PS kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+Bare Metal NodePort
+PS kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/baremetal/service-nodeport.yaml
+Verify
+PS kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch 
+
+Into Pod nginx-ingress-controller version

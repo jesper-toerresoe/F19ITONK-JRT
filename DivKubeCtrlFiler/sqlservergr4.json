@@ -1,0 +1,102 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "sqlserver-group4",
+    "namespace": "default",
+    "selfLink": "/api/v1/namespaces/default/pods/sqlserver-group4",
+    "uid": "ec6f74de-440c-11e9-89da-42010af001d9",
+    "resourceVersion": "5245671",
+    "creationTimestamp": "2019-03-11T14:49:50Z",
+    "labels": {
+      "purpose": "tools-sqlserver"
+    },
+    "annotations": {
+      "kubernetes.io/limit-ranger": "LimitRanger plugin set: cpu request for container sqlserver-group4-container"
+    }
+  },
+  "spec": {
+    "volumes": [
+      {
+        "name": "default-token-ttkkh",
+        "secret": {
+          "secretName": "default-token-ttkkh",
+          "defaultMode": 420
+        }
+      }
+    ],
+    "containers": [
+      {
+        "name": "sqlserver-group4-container",
+        "image": "microsoft/mssql-server-linux:2017-latest",
+        "ports": [
+          {
+            "containerPort": 1433,
+            "protocol": "TCP"
+          }
+        ],
+        "env": [
+          {
+            "name": "SA_PASSWORD",
+            "value": "prutskid123"
+          },
+          {
+            "name": "ACCEPT_EULA",
+            "value": "Y"
+          }
+        ],
+        "resources": {
+          "requests": {
+            "cpu": "50m"
+          }
+        },
+        "volumeMounts": [
+          {
+            "name": "default-token-ttkkh",
+            "readOnly": true,
+            "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+          }
+        ],
+        "terminationMessagePath": "/dev/termination-log",
+        "terminationMessagePolicy": "File",
+        "imagePullPolicy": "IfNotPresent"
+      }
+    ],
+    "restartPolicy": "Always",
+    "terminationGracePeriodSeconds": 30,
+    "dnsPolicy": "ClusterFirst",
+    "serviceAccountName": "default",
+    "serviceAccount": "default",
+    "securityContext": {},
+    "schedulerName": "default-scheduler",
+    "tolerations": [
+      {
+        "key": "node.kubernetes.io/not-ready",
+        "operator": "Exists",
+        "effect": "NoExecute",
+        "tolerationSeconds": 300
+      },
+      {
+        "key": "node.kubernetes.io/unreachable",
+        "operator": "Exists",
+        "effect": "NoExecute",
+        "tolerationSeconds": 300
+      }
+    ],
+    "priority": 0
+  },
+  "status": {
+    "phase": "Pending",
+    "conditions": [
+      {
+        "type": "PodScheduled",
+        "status": "False",
+        "lastProbeTime": null,
+        "lastTransitionTime": "2019-03-11T14:49:50Z",
+        "reason": "Unschedulable",
+        "message": "0/3 nodes are available: 3 Insufficient cpu."
+      }
+    ],
+    "qosClass": "Burstable"
+  }
+}

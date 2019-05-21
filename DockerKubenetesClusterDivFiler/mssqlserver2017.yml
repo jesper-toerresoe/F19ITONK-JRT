@@ -1,0 +1,41 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "msql-server2017-jrt",
+    "namespace": "default",
+    "selfLink": "/api/v1/namespaces/default/services/msql-server2017-jrt",
+    "uid": "68f39f49-43dc-11e9-a1cd-00155dd0011e",
+    "resourceVersion": "151455",
+    "creationTimestamp": "2019-03-11T09:02:34Z",
+    "labels": {
+      "purpose": "demonstrate-sqlserver"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "protocol": "TCP",
+        "port": 1433,
+        "targetPort": 1433,
+        "nodePort": 30088
+      }
+    ],
+    "selector": {
+      "purpose": "demonstrate-sqlserver"
+    },
+    "clusterIP": "10.109.50.36",
+    "type": "LoadBalancer",
+    "sessionAffinity": "None",
+    "externalTrafficPolicy": "Cluster"
+  },
+  "status": {
+    "loadBalancer": {
+      "ingress": [
+        {
+          "hostname": "localhost"
+        }
+      ]
+    }
+  }
+}

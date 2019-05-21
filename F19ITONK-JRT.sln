@@ -1,9 +1,43 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28407.52
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F19ITONK.ASPNETCore.MicroService.RESTAPI", "F19ITONK.ASPNETCore.MicroService.RESTAPI\F19ITONK.ASPNETCore.MicroService.RESTAPI.csproj", "{A31C6115-DF66-44E7-B83F-AD9DFF664369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F19ITONK.ASPNETCore.MicroService.Backend", "F19ITONK.ASPNETCore.MicroService.Backend\F19ITONK.ASPNETCore.MicroService.Backend.csproj", "{A117E88A-A334-43AE-81C1-56F4CBEF8A5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{774AF8BA-21D7-48C0-8894-2F3ACD8AAA15}"
+	ProjectSection(SolutionItems) = preProject
+		AdminRole.yaml = AdminRole.yaml
+		DivKubeCtrlFiler\Ingresses\f19itonk-jrt.yaml = DivKubeCtrlFiler\Ingresses\f19itonk-jrt.yaml
+		f19itonkaspnetcoremicroservicebackend.yaml = f19itonkaspnetcoremicroservicebackend.yaml
+		f19itonkaspnetcoremicroservicefrontend.yaml = f19itonkaspnetcoremicroservicefrontend.yaml
+		F19ITONKFrontEnd-Service.yaml = F19ITONKFrontEnd-Service.yaml
+		GCE-Ingress-F19ITONK.yaml = GCE-Ingress-F19ITONK.yaml
+		DivKubeCtrlFiler\Ingresses\gcef19itonk-jrtnew.yaml = DivKubeCtrlFiler\Ingresses\gcef19itonk-jrtnew.yaml
+		DivKubeCtrlFiler\Ingresses\gkef19itonk-jrt.yaml = DivKubeCtrlFiler\Ingresses\gkef19itonk-jrt.yaml
+		InstallNGINXDockerDesktop.txt = InstallNGINXDockerDesktop.txt
+		KubedeployMSSQL.txt = KubedeployMSSQL.txt
+		mssqlserver-service.yaml = mssqlserver-service.yaml
+		mssqlserver.yaml = mssqlserver.yaml
+		MSSQLServerDeployment.yaml = MSSQLServerDeployment.yaml
+		NGNIX-Ingress-F19ITONK.yaml = NGNIX-Ingress-F19ITONK.yaml
+		DivKubeCtrlFiler\Ingresses\ngnixf19itonk-jrt-server.yaml = DivKubeCtrlFiler\Ingresses\ngnixf19itonk-jrt-server.yaml
+		pvc.yaml = pvc.yaml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F19ITONK.ASPNETCore.MicroService.ClassLib", "F19ITONK.ASPNETCore.MicroService.ClassLib\F19ITONK.ASPNETCore.MicroService.ClassLib.csproj", "{09CAED36-D4B9-431C-9FC5-766151A046CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F19ITONK.ASPNETCore.MicroService.FrontEnd", "F19ITONK.ASPNETCore.MicroService.FrontEnd\F19ITONK.ASPNETCore.MicroService.FrontEnd.csproj", "{89A44355-B3F1-4533-96D4-A58B6EF3F487}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F19ITONK.ASPNETCore.MicroService.RESTAPI", "F19ITONK.ASPNETCore.MicroService.RESTAPI\F19ITONK.ASPNETCore.MicroService.RESTAPI.csproj", "{8B8E6F81-367E-4917-9959-C1E55FCB4887}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F19ITONK.ASPNETCore.MicroService.SecondFrontEnd", "F19ITONK.ASPNETCore.MicroService.SecondFrontEnd\F19ITONK.ASPNETCore.MicroService.SecondFrontEnd.csproj", "{3D6985D2-D9A3-4C5D-B279-D6109AF1D5CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KubernetesInActionYaml", "KubernetesInActionYaml\KubernetesInActionYaml.csproj", "{A1B4CE2B-4C2F-4DF8-A063-D948105A00EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{CF5276CD-1C11-46E0-9D11-4BDEE7125B4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{61995D62-77BC-4B37-87B2-70E1DD10E063}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +45,43 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A31C6115-DF66-44E7-B83F-AD9DFF664369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A31C6115-DF66-44E7-B83F-AD9DFF664369}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A31C6115-DF66-44E7-B83F-AD9DFF664369}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A31C6115-DF66-44E7-B83F-AD9DFF664369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A117E88A-A334-43AE-81C1-56F4CBEF8A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A117E88A-A334-43AE-81C1-56F4CBEF8A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A117E88A-A334-43AE-81C1-56F4CBEF8A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A117E88A-A334-43AE-81C1-56F4CBEF8A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CAED36-D4B9-431C-9FC5-766151A046CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CAED36-D4B9-431C-9FC5-766151A046CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CAED36-D4B9-431C-9FC5-766151A046CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CAED36-D4B9-431C-9FC5-766151A046CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A44355-B3F1-4533-96D4-A58B6EF3F487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A44355-B3F1-4533-96D4-A58B6EF3F487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A44355-B3F1-4533-96D4-A58B6EF3F487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A44355-B3F1-4533-96D4-A58B6EF3F487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B8E6F81-367E-4917-9959-C1E55FCB4887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B8E6F81-367E-4917-9959-C1E55FCB4887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B8E6F81-367E-4917-9959-C1E55FCB4887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B8E6F81-367E-4917-9959-C1E55FCB4887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6985D2-D9A3-4C5D-B279-D6109AF1D5CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6985D2-D9A3-4C5D-B279-D6109AF1D5CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6985D2-D9A3-4C5D-B279-D6109AF1D5CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6985D2-D9A3-4C5D-B279-D6109AF1D5CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B4CE2B-4C2F-4DF8-A063-D948105A00EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B4CE2B-4C2F-4DF8-A063-D948105A00EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B4CE2B-4C2F-4DF8-A063-D948105A00EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B4CE2B-4C2F-4DF8-A063-D948105A00EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5276CD-1C11-46E0-9D11-4BDEE7125B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5276CD-1C11-46E0-9D11-4BDEE7125B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5276CD-1C11-46E0-9D11-4BDEE7125B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5276CD-1C11-46E0-9D11-4BDEE7125B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61995D62-77BC-4B37-87B2-70E1DD10E063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61995D62-77BC-4B37-87B2-70E1DD10E063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61995D62-77BC-4B37-87B2-70E1DD10E063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61995D62-77BC-4B37-87B2-70E1DD10E063}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F8963188-E5AF-4B68-BD2D-E878DA0BF088}
+		SolutionGuid = {FA9851BC-CB97-41CB-AD34-266980AB33D7}
 	EndGlobalSection
 EndGlobal

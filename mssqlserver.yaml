@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mssql-server2017-jrt
+  labels:
+    purpose: demonstrate-sqlserver
+spec:
+  containers:
+  - name: mssql-server2017-jrt-container
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    ports:
+    - containerPort: 1433
+      protocol: TCP
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "15m"
+      limits:
+        memory: "128Mi"
+        cpu: "200m"
+     # limits:
+      #  cpu: 200m
+      #requests:
+      #  cpu: 15m
+    env:
+    - name: SA_PASSWORD
+      value: "F19ItOnk"
+    - name: ACCEPT_EULA
+      value: "Y"

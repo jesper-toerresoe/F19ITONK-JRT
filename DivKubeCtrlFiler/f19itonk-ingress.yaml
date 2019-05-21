@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: f19itonk-jrt
+spec:
+  rules:
+  - host: f19itonk.example.com
+    http:
+      paths:
+      - path: /haandvaerkerapp
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicefrontend-service
+          servicePort: 8090
+      - path: /
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicebackend
+          servicePort: 8080
+

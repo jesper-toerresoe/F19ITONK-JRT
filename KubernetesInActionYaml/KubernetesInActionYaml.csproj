@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\AU220288\Source\repos\F19ITONK-JRT\DivKubeCtrlFiler\f19itonk-Faningress.yaml" Link="f19itonk-Faningress.yaml" />
+    <None Include="C:\Users\AU220288\Source\repos\F19ITONK-JRT\DivKubeCtrlFiler\f19itonk-ingress.yaml" Link="f19itonk-ingress.yaml" />
+  </ItemGroup>
+
+</Project>

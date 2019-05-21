@@ -1,0 +1,19 @@
+C:\Program Files (x86)\Google\Cloud SDK>kubectl create clusterrolebinding cluster-admin-jrt --clusterrole cluster-admin --user Jesper.Toerresoe@gmail.com
+clusterrolebinding.rbac.authorization.k8s.io/cluster-admin-jrt created
+
+C:\Program Files (x86)\Google\Cloud SDK>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+namespace/ingress-nginx created
+configmap/nginx-configuration created
+configmap/tcp-services created
+configmap/udp-services created
+serviceaccount/nginx-ingress-serviceaccount created
+clusterrole.rbac.authorization.k8s.io/nginx-ingress-clusterrole created
+role.rbac.authorization.k8s.io/nginx-ingress-role created
+rolebinding.rbac.authorization.k8s.io/nginx-ingress-role-nisa-binding created
+clusterrolebinding.rbac.authorization.k8s.io/nginx-ingress-clusterrole-nisa-binding configured
+deployment.apps/nginx-ingress-controller created
+
+C:\Program Files (x86)\Google\Cloud SDK>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
+service/ingress-nginx created
+
+ ingress.class 

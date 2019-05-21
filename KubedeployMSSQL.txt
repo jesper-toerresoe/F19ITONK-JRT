@@ -1,0 +1,43 @@
+https://docs.microsoft.com/en-us/sql/linux/tutorial-sql-server-containers-kubernetes?view=sql-server-2017
+kubectl create secret generic mssql-jrt --from-literal=SA_PASSWORD="F19Itonk"
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="MyC0m9l&xP@ssw0rd"
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=F19ITONK" -p 1433:1433 -d microsoft/mssql-server-linux:2017-CU8
+// Start en MS SQL Server 2017   Login SA og PW F19ITONK
+kubectl run msql-server2017-jrt  -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=F19ITONK" -p 1433:1433 -d microsoft/mssql-server-linux:2017-CU8
+// Start en MS SQL Server 2017   Login SA og PW F19ITONK
+https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/
+
+kubectl expose pod  msql-server2017-jrt -type=LoadBalancer --port=1433 
+
+*************************************Backend deploy inklusiv Docker*******************************
+dotnet restore
+dotnet build
+dotnet publish -o dist
+docker build -t jrtaseau/f19itonkaspnetcoremicroservicebackend .
+docker tag jrtaseau/f19itonkaspnetcoremicroservicebackend jrtaseau/f19itonkaspnetcoremicroservicebackend
+docker push jrtaseau/f19itonkaspnetcoremicroservicebackend
+
+kubectl run f19itonkaspnetcoremicroservicebackend --image=docker.io/jrtaseau/f19itonkaspnetcoremicroservicebackend:latest --port=80 
+
+cd 
+kubectl apply -f .\f19itonkaspnetcoremicroservicebackend.yaml
+
+kubectl expose  deployment  f19itonkaspnetcoremicroservicebackend --type=LoadBalancer --port=8080 --target-port=80
+
+*************************************Frontend deploy inklusiv Docker*******************************
+dotnet restore
+dotnet build
+dotnet publish -o dist
+docker build -t jrtaseau/f19itonkaspnetcoremicroservicefrontend .
+docker tag jrtaseau/f19itonkaspnetcoremicroservicefrontend jrtaseau/f19itonkaspnetcoremicroservicefrontend
+docker push jrtaseau/f19itonkaspnetcoremicroservicefrontend
+
+kubectl run f19itonkaspnetcoremicroservicefrontend --image=docker.io/jrtaseau/f19itonkaspnetcoremicroservicefrontend:latest --port=80 
+
+kubectl create -f .\f19itonkaspnetcoremicroservicefrontend.yaml
+
+kubectl expose  deployment  f19itonkaspnetcoremicroservicefrontend --type=LoadBalancer --port=8090 --target-port=80
+
+*****************************************
+kubectl exec -it <pod_name> export VARIABLENAME=<thing>

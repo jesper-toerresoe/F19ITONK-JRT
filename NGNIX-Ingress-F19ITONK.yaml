@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ngnixf19itonk-jrt
+  annotations:
+   ## kubernetes.io/ingress.class: "gce"
+     ##kubernetes.io/ingress.class: "ngnix"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: f19itonk.example.dk
+    http:
+      paths:
+      - path: /haandvaerkerapp
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicefrontend-service
+          servicePort: 8090
+      - path: /haandvaerkerapp/.*
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicefrontend-service
+          servicePort: 8090
+      - path: /swagger
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicebackend
+          servicePort: 8080
+      - path: /swagger/.*
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicebackend
+          servicePort: 8080
+      - path: /api
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicebackend
+          servicePort: 8080
+      - path: /api/.*
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicebackend
+          servicePort: 8080

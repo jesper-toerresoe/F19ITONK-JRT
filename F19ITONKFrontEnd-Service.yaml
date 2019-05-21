@@ -1,0 +1,17 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "f19itonkaspnetcoremicroservicefrontend-service"
+  namespace: "default"
+  labels:
+    run: "f19itonkaspnetcoremicroservicefrontend"
+spec:
+  ports:
+  - protocol: "TCP"
+    port: 8090
+    targetPort: 80
+  selector:
+    run: "f19itonkaspnetcoremicroservicefrontend"
+  type: "LoadBalancer"
+  loadBalancerIP: ""

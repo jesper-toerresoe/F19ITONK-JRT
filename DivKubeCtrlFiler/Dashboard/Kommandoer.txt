@@ -1,0 +1,61 @@
+Link https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+
+**Brugeropsætning
+kubectl apply -f dashboard-adminuser.yaml
+
+
+****kubectl -n kube-system describe secret $(kubectl -n kube-system get secret)
+
+PS C:\Users\AU220288\Source\repos\F19ITONK-JRT\DivKubeCtrlFiler\Dashboard> kubectl -n kube-system get secret
+NAME                                             TYPE                                  DATA      AGE
+admin-user-token-fsvq7                           kubernetes.io/service-account-token   3         3m
+attachdetach-controller-token-9q42x              kubernetes.io/service-account-token   3         18h
+bootstrap-signer-token-pfwg9                     kubernetes.io/service-account-token   3         18h
+bootstrap-token-23w6jd                           bootstrap.kubernetes.io/token         7         18h
+certificate-controller-token-nb5j2               kubernetes.io/service-account-token   3         18h
+clusterrole-aggregation-controller-token-gbt8n   kubernetes.io/service-account-token   3         18h
+cronjob-controller-token-xvcnj                   kubernetes.io/service-account-token   3         18h
+daemon-set-controller-token-kl72x                kubernetes.io/service-account-token   3         18h
+default-token-pftsb                              kubernetes.io/service-account-token   3         18h
+deployment-controller-token-sjlr2                kubernetes.io/service-account-token   3         18h
+disruption-controller-token-82wv5                kubernetes.io/service-account-token   3         18h
+endpoint-controller-token-4qk67                  kubernetes.io/service-account-token   3         18h
+generic-garbage-collector-token-qhjt8            kubernetes.io/service-account-token   3         18h
+horizontal-pod-autoscaler-token-g879p            kubernetes.io/service-account-token   3         18h
+job-controller-token-7h6z9                       kubernetes.io/service-account-token   3         18h
+kube-dns-token-jh7xr                             kubernetes.io/service-account-token   3         18h
+kube-proxy-token-7r6jj                           kubernetes.io/service-account-token   3         18h
+kubernetes-dashboard-certs                       Opaque                                0         27m
+kubernetes-dashboard-csrf                        Opaque                                1         27m
+kubernetes-dashboard-key-holder                  Opaque                                2         27m
+kubernetes-dashboard-token-z9jp6                 kubernetes.io/service-account-token   3         27m
+namespace-controller-token-m6g9g                 kubernetes.io/service-account-token   3         18h
+node-controller-token-8tnjn                      kubernetes.io/service-account-token   3         18h
+persistent-volume-binder-token-rsdbt             kubernetes.io/service-account-token   3         18h
+pod-garbage-collector-token-m6ld2                kubernetes.io/service-account-token   3         18h
+pv-protection-controller-token-fxpdx             kubernetes.io/service-account-token   3         18h
+pvc-protection-controller-token-sqrm5            kubernetes.io/service-account-token   3         18h
+replicaset-controller-token-nrw44                kubernetes.io/service-account-token   3         18h
+replication-controller-token-b8cnx               kubernetes.io/service-account-token   3         18h
+resourcequota-controller-token-bfs2l             kubernetes.io/service-account-token   3         18h
+service-account-controller-token-thqrg           kubernetes.io/service-account-token   3         18h
+service-controller-token-t9tgw                   kubernetes.io/service-account-token   3         18h
+statefulset-controller-token-pclxj               kubernetes.io/service-account-token   3         18h
+token-cleaner-token-md5md                        kubernetes.io/service-account-token   3         18h
+ttl-controller-token-qvwkn                       kubernetes.io/service-account-token   3         18h
+PS C:\Users\AU220288\Source\repos\F19ITONK-JRT\DivKubeCtrlFiler\Dashboard> kubectl -n kube-system describe secret admin-user-t
+oken-fsvq7
+Name:         admin-user-token-fsvq7
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  kubernetes.io/service-account.name=admin-user
+              kubernetes.io/service-account.uid=777a52c6-6b1d-11e9-ba64-00155dd0011e
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+ca.crt:     1025 bytes
+namespace:  11 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLWZzdnE3Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI3NzdhNTJjNi02YjFkLTExZTktYmE2NC0wMDE1NWRkMDAxMWUiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06YWRtaW4tdXNlciJ9.Ylwp8XOMSRhwifjG11muz1sL7dQF85v6p7_QDXHmakDI1XwQUnVqnYQJbcZvpvVX-4jAMefR3qy0bcz4OUnyAsbTRDLr5kQYFpPjeK0osTFQzPnUHLVmbuQbxbaaOlv8c1CNhbRnDsbiMOAiJO-H2coss8qgrI5iy-5lKgXqVhvU9RyZ8SnB3w8-zVlUP1dI5CElHqatNYaR-ZYydj55fWjYpYBkOKFQcNorIOyQ2RYmihQRzc_1wrW1C9mGeLhuTHYJzwTcN-0Emc0ETZOpR4Xtrm31Q0C6CLK61ty0O8AY23Bp74odtW3FubtYYQHVqbImsHCTntW3DESOf_cL4A

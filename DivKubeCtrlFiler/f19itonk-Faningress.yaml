@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: fanf19itonk-jrt
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /haandvaerkerapp/*
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicefrontend-service
+          servicePort: 8090
+      - path: /swagger/*
+        backend:
+          serviceName: f19itonkaspnetcoremicroservicebackend
+          servicePort: 8080
+
